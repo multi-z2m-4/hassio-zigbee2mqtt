@@ -2,11 +2,15 @@ name: Sync Fork
 
 on:
   schedule:
-    - cron: '0 0 * * *' # every 30 minutes
+    - cron: '0 0 * * *' # every day @ 00:00
   workflow_dispatch: # on button click
 
 jobs:
-  sync:      
+  sync:
+    permissions:
+      contents: write
+      pull-requests: write
+      
     runs-on: ubuntu-latest
 
     steps:
